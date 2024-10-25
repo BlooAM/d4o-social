@@ -23,6 +23,12 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError('Passwords are different.')
         return cd['password2']
 
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.get(email=email).exists():
+            raise forms.ValidationError('This email address already exists.')
+        return email
+
 
 class UserEditForm(forms.ModelForm):
     class Meta:
