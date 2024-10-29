@@ -145,7 +145,10 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
 ]
+
+SECURE_SSL_REDIRECT = False
 
 SOCIAL_AUHT_FACEBOOK_KEY = os.getenv('SOCIAL_AUHT_FACEBOOK_KEY')
 SOCIAL_AUTH_FAEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FAEBOOK_SECRET')
