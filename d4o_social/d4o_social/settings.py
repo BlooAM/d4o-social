@@ -151,6 +151,18 @@ AUTHENTICATION_BACKENDS = [
 
 SECURE_SSL_REDIRECT = False
 
+SOCIAL_AUTH_PIPELINE = [
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.social_auth.get_username',
+    'social_core.pipeline.social_auth.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.social_auth.user_details',
+]
+
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUHT_FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FAEBOOK_SECRET')
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['emial']
