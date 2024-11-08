@@ -4,8 +4,18 @@
 
 {% block content %}
     <h1>Main panel</h1>
+
+    {% with total_images_created=request.user.images_created_count %}
+        <p>Welcome to main panel. You added {{ total_images_created }} images.</p>
+    {% endwith %}
+
     <p>
-        Welcome to main panel. You can <a href="{% url "edit" %}">edit profile</a> or
-        <a href="{% url "password_change"%}">change your password</a>.
+        Drag button to 'favourite' bookmark so you can add images from other websites
+        <a href="javascript:{% include "bookmarklet_launcher.js" %}" class="button">Add image</a>
+    </p>
+
+    <p>
+        You can also <a href="{% url "edit" %}">edit your profile</a> or
+        <a href="{% url "password_change" %}"> change your password</a>.
     </p>
 {% endblock %}
