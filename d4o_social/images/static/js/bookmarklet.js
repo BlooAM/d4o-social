@@ -60,6 +60,7 @@ function bookmarkletLaunch() {
                   '_blank');
     })
   })
+}
 
 // launch the bookmkarklet
 bookmarkletLaunch();
