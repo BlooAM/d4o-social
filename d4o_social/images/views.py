@@ -64,3 +64,4 @@ def image_list(request):
         images = paginator.page(paginator.num_pages)
     if images_only:
         return render(request, 'images/image/list_images.html', {'section': images, 'images': images})
+    return render(request, 'images/image/list.html', {'section': 'images', 'images': images})
