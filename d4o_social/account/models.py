@@ -12,6 +12,29 @@ class Profile(models.Model):
         return f'Profile of user {self.user.username}'
 
 
+class Contact(models.Model):
+    user_from = models.ForeignKey(
+        'auth.User',
+        related_name='rel_from_set',
+        on_delete=models.CASCADE,
+    )
+    user_to = models.ForeignKey(
+        'auth.User',
+        related_name='rel_to_set',
+        on_delete=models.CASCADE,
+    )
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['-created']),
+        ]
+        ordering = ['-created']
+
+    def __str__(self):
+        return f'{self.user_from} follows {self.user_to}'
+
+
 user_model = get_user_model()
 user_model.add_to_class(
     'following',
