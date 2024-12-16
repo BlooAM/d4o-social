@@ -28,7 +28,7 @@
             {% for uer in mage.users_like.all %}
                 <div>
                     {% if user.profile.photo %}
-                        <img src="{{ user.profile.photo.url }}">
+                        <img src="{{ user.profile.photo }}">
                     {% endif %}
                     <p>{{ user.first_name }}</p>
                 </div>
