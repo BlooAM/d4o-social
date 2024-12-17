@@ -88,6 +88,8 @@ def user_detail(request, username):
 def user_follow(request):
     user_id = request.POST.get('id')
     action = request.POST.get('action')
+    print(user_id)
+    print(action)
     if user_id and action:
         try:
             user = User.objects.get(id=user_id)
