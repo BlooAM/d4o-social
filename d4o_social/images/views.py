@@ -5,6 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from actions.utils import create_action
 from .forms import ImageCreateForm
 from .models import Image
 
@@ -17,6 +18,7 @@ def image_create(request):
             new_image = form.save(commit=False)
             new_image.user = request.user
             new_image.save()
+            create_action(request.user, 'added image', new_image)
             messages.success(request, 'Image has been uploaded.')
             return redirect(new_image.get_absolute_url())
     else:
