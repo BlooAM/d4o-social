@@ -18,4 +18,5 @@ def create_action(user, verb, target=None):
     if not similar_actions:
         action = Action(user=user, verb=verb, target=target)
         action.save()
+        return True
     return False
