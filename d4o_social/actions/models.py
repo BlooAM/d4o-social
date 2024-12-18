@@ -6,7 +6,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 class Action(models.Model):
     user = models.ForeignKey('auth.User', related_name='actions', on_delete=models.CASCADE)
     verb = models.CharField(max_length=255)
-    created = models.DateTimeFiel(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     target_ct = models.ForeignKey(
         ContentType,
         blank=True,
