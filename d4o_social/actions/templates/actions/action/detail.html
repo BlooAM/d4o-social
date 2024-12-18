@@ -21,7 +21,7 @@
     </div>
     <div class="info">
         <p>
-            <span clas="date">{{ action.created||timesince }} ago</span>
+            <span clas="date">{{ action.created|timesince }} ago</span>
             <br />
             <a href="{{ user.get_absolute_url }}">{{ user.first_namae }}</a>
             {{ action.verb }}
