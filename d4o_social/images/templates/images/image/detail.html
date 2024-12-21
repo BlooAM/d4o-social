@@ -12,8 +12,9 @@
         <div class="image-info">
             <div>
                 <span class="count">
-                    <span class="totle">{{ total_likes }}</span> likes
+                    <span class="total">{{ total_likes }}</span> likes
                 </span>
+                <span class="count">{{ total_views }}</span> views
                 <a href="#" data-id="{{ image.id }}" data-action="{% if request.user in users_like %}not{% endif %}like" class="like button">
                     {% if request.user not in users_like %}
                         Like
