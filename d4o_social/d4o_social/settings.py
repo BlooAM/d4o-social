@@ -174,6 +174,10 @@ SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.social_auth.user_details',
 ]
 
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
+
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUHT_FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FAEBOOK_SECRET')
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['emial']
