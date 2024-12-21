@@ -86,5 +86,5 @@ def image_ranking(request):
     image_ranking = r.zrange('image_ranking', 0, -1, desc=True)[:10]
     image_ranking_ids = [int(id) for id in image_ranking]
     most_viewed = list(Image.objects.filter(id__in=image_ranking_ids))
-    most_viewed.sort(key=lambda x: image_ranking_ids.index(id.x))
+    most_viewed.sort(key=lambda x: image_ranking_ids.index(x.id))
     return render(request, 'images/image/ranking.html', {'sections': 'images', 'most_viewed': most_viewed})
